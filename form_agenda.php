@@ -13,7 +13,6 @@ if ($conn->connect_error) {
 
 $mensagem = '';
 
-// Buscar lista de clientes
 $result = $conn->query("SELECT id, nome FROM clientes");
 if ($result) {
     $clientes = $result->fetch_all(MYSQLI_ASSOC);
@@ -21,7 +20,6 @@ if ($result) {
     $clientes = [];
 }
 
-// Inserção de agendamento
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome_do_cliente = trim($_POST['nome_do_cliente'] ?? '');
     $tipo_de_servico = trim($_POST['tipo_de_servico'] ?? '');
@@ -213,3 +211,4 @@ $conn->close();
 </main>
 </body>
 </html>
+
