@@ -1,5 +1,4 @@
 <?php
-// Conexão com o banco
 $host = 'localhost';
 $user = 'root';
 $pass = '';
@@ -12,7 +11,6 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Inserção de pagamento
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_cliente = $_POST['id_cliente'] ?? '';
     $valor = $_POST['valor'] ?? '';
@@ -33,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 
-// Lista de clientes para o select
 $clientes = $conn->query("SELECT id, nome FROM clientes ORDER BY nome ASC");
 ?>
 
@@ -198,3 +195,4 @@ $clientes = $conn->query("SELECT id, nome FROM clientes ORDER BY nome ASC");
 
 </body>
 </html>
+
